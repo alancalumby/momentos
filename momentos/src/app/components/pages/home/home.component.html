@@ -1,1 +1,17 @@
-<p>Home</p>
+<div class="home-container">
+  <h1>Veja o que estão compartilhando:</h1>
+  <div class="search-container">
+    <form>
+      <fa-icon [icon]="faSearch"></fa-icon>
+      <input
+        type="text"
+        placeholder="Ou busque por um momento..."
+        (input)="search($event)"
+      />
+    </form>
+  </div>
+
+  <div class="moment" *ngFor="let moment of moments">
+    <h3>{{ moment.title }}</h3>
+  </div>
+</div>
