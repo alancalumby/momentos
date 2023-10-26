@@ -1,3 +1,4 @@
+import { Response } from './../Response';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -15,5 +16,9 @@ export class MomentoService {
 
   createMomento(formData: FormData): Observable<FormData> {
     return this.http.post<FormData>(this.apiUrl, formData);
+  }
+
+  getMomentos(): Observable<Response<Momento[]>> {
+    return this.http.get<Response<Momento[]>>(this.apiUrl);
   }
 }
