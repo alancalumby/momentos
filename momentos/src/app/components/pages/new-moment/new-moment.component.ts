@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Momento } from 'src/app/Momento';
 import { MomentoService } from 'src/app/services/momento.service';
+import { MessagesService } from 'src/app/services/messages.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-moment',
@@ -10,7 +12,11 @@ import { MomentoService } from 'src/app/services/momento.service';
 export class NewMomentComponent implements OnInit {
   btnText = 'Compartilhar';
 
-  constructor(private momentoService: MomentoService) {}
+  constructor(
+    private momentoService: MomentoService,
+    private messageService: MessagesService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     //throw new Error('Method not implemented.');
@@ -26,5 +32,8 @@ export class NewMomentComponent implements OnInit {
     }
 
     await this.momentoService.createMomento(formData).subscribe();
+
+    this.messageService.add('Momento adicionado com sucesso!');
+    this.router.navigate(['/']);
   }
 }

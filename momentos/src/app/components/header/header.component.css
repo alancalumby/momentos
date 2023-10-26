@@ -5,7 +5,8 @@ nav {
   border-bottom: 1px solid #777;
 }
 
-.brand {
+.brand,
+.links {
   display: flex;
   justify-content: center;
   align-items: center;
