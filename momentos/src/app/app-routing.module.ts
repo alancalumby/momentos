@@ -1,3 +1,4 @@
+import { MomentoComponent } from './components/pages/momento/momento.component';
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/pages/home/home.component';
@@ -8,6 +9,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'momentos/new', component: NewMomentComponent },
+  { path: 'momentos/:id', component: MomentoComponent },
 ];
 
 @NgModule({
