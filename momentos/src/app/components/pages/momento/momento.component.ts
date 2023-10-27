@@ -72,16 +72,16 @@ export class MomentoComponent implements OnInit {
   }
 
   async onSubmit(formDirective: FormGroupDirective) {
-    // if (this.commentForm.invalid) {
-    //   return;
-    // }
-    // const data: Comment = this.commentForm.value;
-    // data.momentId = Number(this.moment!.id);
-    // await this.commentService
-    //   .createComment(data)
-    //   .subscribe((comment) => this.moment!.comments!.push(comment.data));
-    // this.messagesService.add(`Comentário adicionado!`);
-    // this.commentForm.reset();
-    // formDirective.resetForm();
+    if (this.commentForm.invalid) {
+      return;
+    }
+    const data: Comment = this.commentForm.value;
+    data.momentId = Number(this.moment!.id);
+    await this.commentService
+      .createComment(data)
+      .subscribe((comment) => this.moment!.comments!.push(comment.data));
+    this.messagesService.add(`Comentário adicionado!`);
+    this.commentForm.reset();
+    formDirective.resetForm();
   }
 }
